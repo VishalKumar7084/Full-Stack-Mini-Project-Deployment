@@ -3,8 +3,8 @@ import { useAuth } from './context/AuthContext';
 import { api } from './services/api';
 
 import Navbar from './components/Navbar';
-import NextstepLanding from './components/NextstepLanding';
-import NextstepWorkspace from './components/NextstepWorkspace';
+import VantageLanding from './components/VantageLanding';
+import VantageWorkspace from './components/VantageWorkspace';
 import ApplicationModal from './components/ApplicationModal';
 import AuthModal from './components/AuthModal';
 import Toast from './components/Toast';
@@ -65,7 +65,7 @@ export default function App() {
     loadData();
   }, [loadData, isAuthenticated]);
 
-  // Handle stage change (Kanban move)
+  // Stage change handler
   const handleStatusChange = async (appId, newStatus) => {
     setApplications((prev) =>
       prev.map((a) => (a.id === appId ? { ...a, status: newStatus } : a))
@@ -85,7 +85,7 @@ export default function App() {
     }
   };
 
-  // Handle Modal Save (Create or Update)
+  // Modal Submit (Create or Update)
   const handleModalSubmit = async (formData) => {
     try {
       if (editingApp) {
@@ -127,8 +127,8 @@ export default function App() {
     }
   };
 
-  // Quick Start Flow: If user clicks "Start tracking" on landing, ensure authenticated and switch view
-  const handleStartTracking = async () => {
+  // Direct workspace launch
+  const handleOpenWorkspace = async () => {
     if (!isAuthenticated) {
       await demoLogin();
     }
@@ -147,30 +147,28 @@ export default function App() {
   };
 
   return (
-    <div className="site-wrapper">
+    <div className="app-shell">
       {/* Top Navbar */}
       <Navbar
         onOpenAddModal={() => openAddModal('applied')}
         onOpenAuthModal={() => setIsAuthModalOpen(true)}
-        onStartTracking={handleStartTracking}
+        onOpenWorkspace={handleOpenWorkspace}
         currentView={currentView}
         setCurrentView={setCurrentView}
       />
 
       <main style={{ flex: 1 }}>
-        {/* Exact Landing Page from Screenshots */}
         {currentView === 'landing' ? (
-          <NextstepLanding
-            onStartTracking={handleStartTracking}
+          <VantageLanding
+            onOpenWorkspace={handleOpenWorkspace}
             onSignIn={() => setIsAuthModalOpen(true)}
-            onHowItWorks={() => {
-              const el = document.getElementById('the-method-section');
+            onScrollToArchitecture={() => {
+              const el = document.getElementById('the-architecture-section');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
           />
         ) : (
-          /* MERN Stack Interactive Workspace */
-          <NextstepWorkspace
+          <VantageWorkspace
             applications={applications}
             stats={stats}
             search={search}
@@ -185,7 +183,7 @@ export default function App() {
         )}
       </main>
 
-      {/* Add / Edit Opportunity Modal */}
+      {/* Modal Dialog */}
       <ApplicationModal
         isOpen={isAppModalOpen}
         onClose={() => {

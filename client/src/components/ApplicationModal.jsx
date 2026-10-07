@@ -11,7 +11,7 @@ export default function ApplicationModal({
   const [formData, setFormData] = useState({
     company: '',
     role: '',
-    jobType: 'Internship',
+    jobType: 'Full-time',
     workModel: 'Hybrid',
     location: '',
     stipend: '',
@@ -47,7 +47,7 @@ export default function ApplicationModal({
       setFormData({
         company: '',
         role: '',
-        jobType: 'Internship',
+        jobType: 'Full-time',
         workModel: 'Hybrid',
         location: '',
         stipend: '',
@@ -120,92 +120,86 @@ export default function ApplicationModal({
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <h3 className="modal-title">
-            {initialData ? 'Edit Application' : 'Track New Application'}
+    <div className="editorial-modal-backdrop" onClick={onClose}>
+      <div className="editorial-modal-window" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header-editorial">
+          <h3>
+            {initialData ? 'Edit Opportunity' : 'Track New Opportunity'}
           </h3>
-          <button className="icon-btn" onClick={onClose}>
+          <button className="nav-link" onClick={onClose} style={{ padding: '0.25rem' }}>
             <X size={18} />
           </button>
         </div>
 
         <form onSubmit={handleSubmit}>
-          <div className="modal-body">
-            <div className="form-grid">
+          <div className="modal-body-editorial">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '1rem' }}>
               {/* Company */}
-              <div className="form-group">
-                <label className="form-label">Company Name *</label>
+              <div>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--pine-800)', display: 'block', marginBottom: '0.35rem' }}>
+                  Company Name *
+                </label>
                 <input
                   id="modal-input-company"
                   type="text"
                   name="company"
-                  className="form-input"
+                  className="search-field-input"
+                  style={{ borderRadius: 'var(--radius-md)', padding: '0.65rem 0.9rem' }}
                   required
-                  placeholder="e.g. Stripe, Google, Spotify"
+                  placeholder="e.g. Stripe, Linear, Figma"
                   value={formData.company}
                   onChange={handleChange}
                 />
               </div>
 
               {/* Role */}
-              <div className="form-group">
-                <label className="form-label">Role / Position *</label>
+              <div>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--pine-800)', display: 'block', marginBottom: '0.35rem' }}>
+                  Role / Position *
+                </label>
                 <input
                   id="modal-input-role"
                   type="text"
                   name="role"
-                  className="form-input"
+                  className="search-field-input"
+                  style={{ borderRadius: 'var(--radius-md)', padding: '0.65rem 0.9rem' }}
                   required
-                  placeholder="e.g. Frontend Developer Intern"
+                  placeholder="e.g. Frontend Engineer"
                   value={formData.role}
                   onChange={handleChange}
                 />
               </div>
 
-              {/* Pipeline Status */}
-              <div className="form-group">
-                <label className="form-label">Pipeline Stage</label>
+              {/* Status */}
+              <div>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--pine-800)', display: 'block', marginBottom: '0.35rem' }}>
+                  Pipeline Stage
+                </label>
                 <select
                   id="modal-select-status"
                   name="status"
-                  className="form-select"
+                  className="search-field-input"
+                  style={{ borderRadius: 'var(--radius-md)', padding: '0.65rem 0.9rem', background: '#FFFFFF' }}
                   value={formData.status}
                   onChange={handleChange}
                 >
-                  <option value="wishlist">💡 Wishlist (Target)</option>
-                  <option value="applied">📨 Applied (Submitted)</option>
-                  <option value="interviewing">🎯 Interviewing</option>
-                  <option value="offer">🎉 Offer Received</option>
-                  <option value="rejected">📋 Archived / Rejected</option>
-                </select>
-              </div>
-
-              {/* Job Type */}
-              <div className="form-group">
-                <label className="form-label">Job Type</label>
-                <select
-                  id="modal-select-jobType"
-                  name="jobType"
-                  className="form-select"
-                  value={formData.jobType}
-                  onChange={handleChange}
-                >
-                  <option value="Internship">Internship</option>
-                  <option value="Co-op">Co-op (College Semester)</option>
-                  <option value="Full-time">Full-time (Graduate)</option>
-                  <option value="Part-time">Part-time</option>
+                  <option value="wishlist">Target Wishlist</option>
+                  <option value="applied">In Motion (Applied)</option>
+                  <option value="interviewing">Active Loops</option>
+                  <option value="offer">Offer Extended</option>
+                  <option value="rejected">Retrospective</option>
                 </select>
               </div>
 
               {/* Work Model */}
-              <div className="form-group">
-                <label className="form-label">Work Model</label>
+              <div>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--pine-800)', display: 'block', marginBottom: '0.35rem' }}>
+                  Work Model
+                </label>
                 <select
-                  id="modal-select-workModel"
                   name="workModel"
-                  className="form-select"
+                  className="search-field-input"
+                  style={{ borderRadius: 'var(--radius-md)', padding: '0.65rem 0.9rem', background: '#FFFFFF' }}
                   value={formData.workModel}
                   onChange={handleChange}
                 >
@@ -216,37 +210,40 @@ export default function ApplicationModal({
               </div>
 
               {/* Location */}
-              <div className="form-group">
-                <label className="form-label">Location / City</label>
+              <div>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--pine-800)', display: 'block', marginBottom: '0.35rem' }}>
+                  Location
+                </label>
                 <input
-                  id="modal-input-location"
                   type="text"
                   name="location"
-                  className="form-input"
+                  className="search-field-input"
+                  style={{ borderRadius: 'var(--radius-md)', padding: '0.65rem 0.9rem' }}
                   placeholder="e.g. San Francisco, CA / Remote"
                   value={formData.location}
                   onChange={handleChange}
                 />
               </div>
 
-              {/* Stipend Rate */}
-              <div className="form-group">
-                <label className="form-label">Stipend / Compensation ($)</label>
+              {/* Stipend */}
+              <div>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--pine-800)', display: 'block', marginBottom: '0.35rem' }}>
+                  Compensation ($)
+                </label>
                 <div style={{ display: 'flex', gap: '0.4rem' }}>
                   <input
-                    id="modal-input-stipend"
                     type="number"
                     name="stipend"
-                    className="form-input"
-                    style={{ flex: 1 }}
-                    placeholder="e.g. 50"
+                    className="search-field-input"
+                    style={{ flex: 1, borderRadius: 'var(--radius-md)', padding: '0.65rem 0.9rem' }}
+                    placeholder="e.g. 55"
                     value={formData.stipend}
                     onChange={handleChange}
                   />
                   <select
                     name="stipendPeriod"
-                    className="form-select"
-                    style={{ width: '90px' }}
+                    className="search-field-input"
+                    style={{ width: '90px', borderRadius: 'var(--radius-md)', padding: '0.65rem', background: '#FFFFFF' }}
                     value={formData.stipendPeriod}
                     onChange={handleChange}
                   >
@@ -256,207 +253,167 @@ export default function ApplicationModal({
                 </div>
               </div>
 
-              {/* Application Date */}
-              <div className="form-group">
-                <label className="form-label">Date Applied</label>
-                <input
-                  id="modal-input-applyDate"
-                  type="date"
-                  name="applyDate"
-                  className="form-input"
-                  value={formData.applyDate}
-                  onChange={handleChange}
-                />
-              </div>
-
               {/* Deadline */}
-              <div className="form-group">
-                <label className="form-label">Application Deadline</label>
+              <div>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--pine-800)', display: 'block', marginBottom: '0.35rem' }}>
+                  Target Deadline
+                </label>
                 <input
-                  id="modal-input-deadline"
                   type="date"
                   name="deadline"
-                  className="form-input"
+                  className="search-field-input"
+                  style={{ borderRadius: 'var(--radius-md)', padding: '0.65rem 0.9rem' }}
                   value={formData.deadline}
                   onChange={handleChange}
                 />
               </div>
 
-              {/* Job Posting URL */}
-              <div className="form-group full-width">
-                <label className="form-label">Job Listing URL</label>
+              {/* Job URL */}
+              <div>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--pine-800)', display: 'block', marginBottom: '0.35rem' }}>
+                  Job Listing Link
+                </label>
                 <input
-                  id="modal-input-jobUrl"
                   type="url"
                   name="jobUrl"
-                  className="form-input"
-                  placeholder="https://company.com/careers/internship"
+                  className="search-field-input"
+                  style={{ borderRadius: 'var(--radius-md)', padding: '0.65rem 0.9rem' }}
+                  placeholder="https://company.com/careers"
                   value={formData.jobUrl}
                   onChange={handleChange}
                 />
               </div>
+            </div>
 
-              {/* Recruiter Contact */}
-              <div className="form-group">
-                <label className="form-label">Recruiter / Contact Name</label>
-                <input
-                  id="modal-input-recruiterName"
-                  type="text"
-                  name="recruiterName"
-                  className="form-input"
-                  placeholder="e.g. Sarah Connor"
-                  value={formData.recruiterName}
-                  onChange={handleChange}
-                />
+            {/* Tags */}
+            <div style={{ marginTop: '1rem' }}>
+              <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--pine-800)', display: 'block', marginBottom: '0.35rem' }}>
+                Skills & Technologies (comma separated)
+              </label>
+              <input
+                type="text"
+                name="tags"
+                className="search-field-input"
+                style={{ borderRadius: 'var(--radius-md)', padding: '0.65rem 0.9rem' }}
+                placeholder="React, TypeScript, Node.js, GraphQL"
+                value={formData.tags}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* Notes */}
+            <div style={{ marginTop: '1rem' }}>
+              <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--pine-800)', display: 'block', marginBottom: '0.35rem' }}>
+                Context & Interview Notes
+              </label>
+              <textarea
+                name="notes"
+                className="search-field-input"
+                style={{ width: '100%', minHeight: '80px', borderRadius: 'var(--radius-md)', padding: '0.65rem 0.9rem', resize: 'vertical' }}
+                placeholder="Key interviewer names, referral context, talking points..."
+                value={formData.notes}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* Interview Rounds */}
+            <div style={{ marginTop: '1.25rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border-divider)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--pine-800)' }}>
+                  Interview Loops ({formData.interviews?.length || 0})
+                </span>
+                {!showAddRound && (
+                  <button
+                    type="button"
+                    className="btn-pill-secondary"
+                    style={{ padding: '0.35rem 0.8rem', fontSize: '0.78rem' }}
+                    onClick={() => setShowAddRound(true)}
+                  >
+                    <Plus size={13} />
+                    <span>Add Round</span>
+                  </button>
+                )}
               </div>
 
-              <div className="form-group">
-                <label className="form-label">Recruiter Email</label>
-                <input
-                  id="modal-input-recruiterEmail"
-                  type="email"
-                  name="recruiterEmail"
-                  className="form-input"
-                  placeholder="sarah@company.com"
-                  value={formData.recruiterEmail}
-                  onChange={handleChange}
-                />
-              </div>
+              {formData.interviews?.length > 0 && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                  {formData.interviews.map((round, idx) => (
+                    <div
+                      key={round.id || idx}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '0.5rem 0.85rem',
+                        borderRadius: 'var(--radius-md)',
+                        background: '#FFFFFF',
+                        border: '1px solid var(--border-card)',
+                        fontSize: '0.84rem'
+                      }}
+                    >
+                      <div>
+                        <strong>{round.roundName}</strong> • <span style={{ color: 'var(--text-muted)' }}>{round.date}</span>
+                      </div>
+                      <button
+                        type="button"
+                        className="nav-link"
+                        style={{ padding: '0.2rem', color: '#DC2626' }}
+                        onClick={() => handleRemoveRound(idx)}
+                      >
+                        <Trash2 size={13} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
 
-              {/* Tags / Skills */}
-              <div className="form-group full-width">
-                <label className="form-label">Skills & Tech Stack Tags (comma separated)</label>
-                <input
-                  id="modal-input-tags"
-                  type="text"
-                  name="tags"
-                  className="form-input"
-                  placeholder="React, TypeScript, Node.js, GraphQL"
-                  value={formData.tags}
-                  onChange={handleChange}
-                />
-              </div>
-
-              {/* Notes */}
-              <div className="form-group full-width">
-                <label className="form-label">Preparation Notes & Follow-ups</label>
-                <textarea
-                  id="modal-textarea-notes"
-                  name="notes"
-                  className="form-textarea"
-                  placeholder="Key talking points, resume customizations, referral names, interview questions..."
-                  value={formData.notes}
-                  onChange={handleChange}
-                />
-              </div>
-
-              {/* Interview Rounds Manager */}
-              <div className="form-group full-width">
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <label className="form-label" style={{ marginBottom: 0 }}>
-                    Interview Rounds ({formData.interviews?.length || 0})
-                  </label>
-                  {!showAddRound && (
+              {showAddRound && (
+                <div style={{ padding: '1rem', background: '#FFFFFF', borderRadius: 'var(--radius-md)', border: '1px dashed var(--border-card)', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem' }}>
+                    <input
+                      type="text"
+                      className="search-field-input"
+                      style={{ borderRadius: 'var(--radius-sm)', padding: '0.5rem 0.75rem' }}
+                      placeholder="Round Title (e.g. Technical Phone Screen)"
+                      value={newRound.roundName}
+                      onChange={(e) => setNewRound({ ...newRound, roundName: e.target.value })}
+                    />
+                    <input
+                      type="date"
+                      className="search-field-input"
+                      style={{ borderRadius: 'var(--radius-sm)', padding: '0.5rem 0.75rem' }}
+                      value={newRound.date}
+                      onChange={(e) => setNewRound({ ...newRound, date: e.target.value })}
+                    />
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem' }}>
                     <button
                       type="button"
-                      className="btn btn-secondary btn-sm"
-                      onClick={() => setShowAddRound(true)}
+                      className="nav-link"
+                      onClick={() => setShowAddRound(false)}
                     >
-                      <Plus size={13} />
-                      <span>Add Round</span>
+                      Cancel
                     </button>
-                  )}
+                    <button
+                      type="button"
+                      className="btn-pill-primary"
+                      style={{ padding: '0.4rem 0.9rem', fontSize: '0.8rem' }}
+                      onClick={handleAddRound}
+                    >
+                      Save Round
+                    </button>
+                  </div>
                 </div>
-
-                {/* Existing rounds */}
-                {formData.interviews?.length > 0 && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '0.75rem' }}>
-                    {formData.interviews.map((round, idx) => (
-                      <div
-                        key={round.id || idx}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          padding: '0.4rem 0.75rem',
-                          borderRadius: 'var(--radius-sm)',
-                          background: 'rgba(255, 255, 255, 0.04)',
-                          border: '1px solid var(--border-subtle)',
-                          fontSize: '0.82rem'
-                        }}
-                      >
-                        <div>
-                          <strong>{round.roundName}</strong> — <span>{round.date}</span> ({round.status})
-                        </div>
-                        <button
-                          type="button"
-                          className="icon-btn"
-                          onClick={() => handleRemoveRound(idx)}
-                          title="Remove round"
-                        >
-                          <Trash2 size={13} color="#f43f5e" />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Form to add a new round */}
-                {showAddRound && (
-                  <div
-                    style={{
-                      padding: '0.85rem',
-                      borderRadius: 'var(--radius-md)',
-                      background: 'rgba(255, 255, 255, 0.03)',
-                      border: '1px dashed var(--border-subtle)',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '0.5rem'
-                    }}
-                  >
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-                      <input
-                        type="text"
-                        className="form-input"
-                        placeholder="Round Name (e.g. Technical Phone Screen)"
-                        value={newRound.roundName}
-                        onChange={(e) => setNewRound({ ...newRound, roundName: e.target.value })}
-                      />
-                      <input
-                        type="date"
-                        className="form-input"
-                        value={newRound.date}
-                        onChange={(e) => setNewRound({ ...newRound, date: e.target.value })}
-                      />
-                    </div>
-                    <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end', marginTop: '0.25rem' }}>
-                      <button
-                        type="button"
-                        className="btn btn-ghost btn-sm"
-                        onClick={() => setShowAddRound(false)}
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-primary btn-sm"
-                        onClick={handleAddRound}
-                      >
-                        Save Round
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
+              )}
             </div>
           </div>
 
-          <div className="modal-footer">
-            <button type="button" className="btn btn-ghost" onClick={onClose}>
+          <div className="modal-footer-editorial">
+            <button type="button" className="nav-link" onClick={onClose}>
               Cancel
             </button>
-            <button id="modal-submit-btn" type="submit" className="btn btn-primary">
-              {initialData ? 'Save Changes' : 'Create Application'}
+            <button id="modal-save-btn" type="submit" className="btn-pill-primary">
+              {initialData ? 'Update Opportunity' : 'Save Opportunity'}
             </button>
           </div>
         </form>

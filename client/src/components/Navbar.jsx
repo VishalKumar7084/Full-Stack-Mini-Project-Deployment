@@ -1,80 +1,71 @@
 import React, { useState } from 'react';
-import {
-  ArrowRight,
-  LogOut,
-  Plus,
-  LayoutGrid,
-  ChevronDown
-} from 'lucide-react';
+import { ArrowRight, LogOut, Plus, ChevronDown, Layers, Compass } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Navbar({
   onOpenAddModal,
   onOpenAuthModal,
-  onStartTracking,
+  onOpenWorkspace,
   currentView,
   setCurrentView
 }) {
-  const { user, isAuthenticated, logout, demoLogin } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const scrollToMethod = () => {
+  const scrollToArchitecture = () => {
     if (currentView === 'landing') {
-      const el = document.getElementById('the-method-section');
+      const el = document.getElementById('the-architecture-section');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
       setCurrentView('landing');
       setTimeout(() => {
-        const el = document.getElementById('the-method-section');
+        const el = document.getElementById('the-architecture-section');
         if (el) el.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
   };
 
   return (
-    <header className="site-navbar">
-      <div className="navbar-container">
-        {/* Brand: nextstep. */}
-        <div className="brand-logo" onClick={() => setCurrentView('landing')}>
-          <div className="brand-logo-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+    <header className="site-header">
+      <div className="header-inner">
+        {/* Brand */}
+        <div className="brand-wrapper" onClick={() => setCurrentView('landing')}>
+          <div className="brand-mark">
+            <Compass size={20} strokeWidth={2.4} />
           </div>
-          <span className="brand-title">nextstep.</span>
+          <span className="brand-text">Vantage</span>
         </div>
 
-        {/* Right Navigation */}
-        <div className="nav-links-right">
-          <button className="nav-link-item" onClick={scrollToMethod}>
-            How it works
+        {/* Nav Links */}
+        <div className="nav-links">
+          <button className="nav-link" onClick={scrollToArchitecture}>
+            The Architecture
           </button>
 
           {currentView === 'landing' ? (
             <>
               {isAuthenticated ? (
                 <button
-                  className="nav-link-item"
+                  className="nav-link"
                   onClick={() => setCurrentView('workspace')}
                 >
-                  Go to Workspace
+                  Workspace
                 </button>
               ) : (
                 <button
-                  className="nav-link-item"
+                  className="nav-link"
                   onClick={onOpenAuthModal}
                 >
-                  Sign in
+                  Sign In
                 </button>
               )}
 
               <button
-                id="navbar-get-started-btn"
-                className="btn-forest-pill"
-                onClick={onStartTracking}
+                id="header-launch-workspace-cta"
+                className="btn-pill-primary"
+                onClick={onOpenWorkspace}
               >
-                <span>Get started</span>
+                <span>Launch Workspace</span>
                 <ArrowRight size={15} />
               </button>
             </>
@@ -82,30 +73,30 @@ export default function Navbar({
             /* Inside Workspace */
             <>
               <button
-                className="nav-link-item"
+                className="nav-link"
                 onClick={() => setCurrentView('landing')}
               >
                 Overview
               </button>
 
               <button
-                id="btn-add-opportunity"
-                className="btn-forest-pill"
+                id="nav-track-opportunity-btn"
+                className="btn-pill-primary"
                 style={{ padding: '0.55rem 1.15rem' }}
                 onClick={onOpenAddModal}
               >
                 <Plus size={15} strokeWidth={2.5} />
-                <span>Add Opportunity</span>
+                <span>Track Opportunity</span>
               </button>
 
               {isAuthenticated ? (
                 <div style={{ position: 'relative' }}>
                   <button
-                    className="btn-outline-pill"
-                    style={{ padding: '0.45rem 0.9rem', fontSize: '0.85rem' }}
+                    className="btn-pill-secondary"
+                    style={{ padding: '0.45rem 0.95rem', fontSize: '0.84rem' }}
                     onClick={() => setDropdownOpen(!dropdownOpen)}
                   >
-                    <span>{user?.name || 'My Workspace'}</span>
+                    <span>{user?.name || 'Account'}</span>
                     <ChevronDown size={14} />
                   </button>
 
@@ -120,18 +111,18 @@ export default function Navbar({
                         borderRadius: 'var(--radius-md)',
                         width: '210px',
                         padding: '0.5rem',
-                        boxShadow: 'var(--shadow-float)',
+                        boxShadow: 'var(--shadow-floating)',
                         zIndex: 110
                       }}
                     >
-                      <div style={{ padding: '0.4rem 0.6rem', borderBottom: '1px solid var(--border-light)', marginBottom: '0.35rem' }}>
-                        <p style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--forest-green)' }}>{user?.name}</p>
+                      <div style={{ padding: '0.45rem 0.65rem', borderBottom: '1px solid var(--border-subtle)', marginBottom: '0.35rem' }}>
+                        <p style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--pine-800)', fontFamily: 'var(--font-serif)' }}>{user?.name}</p>
                         <p style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>{user?.email}</p>
                       </div>
 
                       <button
-                        className="nav-link-item"
-                        style={{ width: '100%', textAlign: 'left', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.45rem 0.6rem', fontSize: '0.82rem' }}
+                        className="nav-link"
+                        style={{ width: '100%', textAlign: 'left', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.45rem 0.65rem', fontSize: '0.82rem' }}
                         onClick={() => {
                           setDropdownOpen(false);
                           logout();
@@ -145,11 +136,11 @@ export default function Navbar({
                 </div>
               ) : (
                 <button
-                  className="btn-outline-pill"
+                  className="btn-pill-secondary"
                   style={{ padding: '0.45rem 1rem' }}
                   onClick={onOpenAuthModal}
                 >
-                  Sign in
+                  Sign In
                 </button>
               )}
             </>
