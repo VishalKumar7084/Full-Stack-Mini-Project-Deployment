@@ -1,0 +1,279 @@
+{
+  "users": [
+    {
+      "id": "usr_demo_intern_101",
+      "name": "Alex Rivera",
+      "email": "demo@careerflow.dev",
+      "passwordHash": "$2a$10$/NCFwBK1E6P1m4y8uZHhkO/Ckvu3mK6NjnNtJZQafCnsrD8t1M8CW",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "title": "Aspiring Software Engineer & Web Developer",
+      "university": "Stanford University / Computer Science",
+      "createdAt": "2026-09-07T06:49:13.911Z"
+    }
+  ],
+  "applications": [
+    {
+      "id": "app_001",
+      "userId": "usr_demo_intern_101",
+      "company": "Stripe",
+      "role": "Frontend Engineering Intern",
+      "jobType": "Internship",
+      "workModel": "Hybrid",
+      "location": "San Francisco, CA",
+      "stipend": 55,
+      "stipendPeriod": "hourly",
+      "currency": "USD",
+      "status": "offer",
+      "applyDate": "2026-08-15",
+      "deadline": "2026-09-01",
+      "jobUrl": "https://stripe.com/jobs/intern",
+      "recruiterName": "Elena Rostova",
+      "recruiterEmail": "elena@stripe.com",
+      "notes": "Received written offer for Summer 2026! Mentorship program looks amazing, tech stack is React, TypeScript, and design systems.",
+      "tags": [
+        "React",
+        "TypeScript",
+        "UI/UX",
+        "Design Systems"
+      ],
+      "interviews": [
+        {
+          "id": "int_1",
+          "roundName": "Recruiter Screen",
+          "date": "2026-08-20",
+          "status": "completed",
+          "notes": "Discussed past projects and graduation date."
+        },
+        {
+          "id": "int_2",
+          "roundName": "Technical Phone Screen",
+          "date": "2026-08-27",
+          "status": "completed",
+          "notes": "JavaScript event loop, custom hook implementation."
+        },
+        {
+          "id": "int_3",
+          "roundName": "Virtual Onsite (3 rounds)",
+          "date": "2026-09-08",
+          "status": "completed",
+          "notes": "UI architecture, algorithmic challenge, behavioral."
+        }
+      ],
+      "createdAt": "2026-08-15T10:00:00.000Z",
+      "updatedAt": "2026-09-12T15:30:00.000Z"
+    },
+    {
+      "id": "app_002",
+      "userId": "usr_demo_intern_101",
+      "company": "Google",
+      "role": "Software Student Trainee (STEP Intern)",
+      "jobType": "Internship",
+      "workModel": "On-site",
+      "location": "Mountain View, CA",
+      "stipend": 52,
+      "stipendPeriod": "hourly",
+      "currency": "USD",
+      "status": "interviewing",
+      "applyDate": "2026-08-25",
+      "deadline": "2026-09-15",
+      "jobUrl": "https://careers.google.com/jobs",
+      "recruiterName": "Marcus Vance",
+      "recruiterEmail": "mvance@google.com",
+      "notes": "Passed initial screening. Preparing for 2 back-to-back 45-minute coding rounds on data structures.",
+      "tags": [
+        "Algorithms",
+        "Python",
+        "Go",
+        "Distributed Systems"
+      ],
+      "interviews": [
+        {
+          "id": "int_4",
+          "roundName": "Resume Screening",
+          "date": "2026-08-29",
+          "status": "completed",
+          "notes": "Screening passed."
+        },
+        {
+          "id": "int_5",
+          "roundName": "Technical Interview 1",
+          "date": "2026-10-12",
+          "status": "scheduled",
+          "notes": "Graphs and dynamic programming practice."
+        },
+        {
+          "id": "int_6",
+          "roundName": "Technical Interview 2",
+          "date": "2026-10-14",
+          "status": "scheduled",
+          "notes": "System design basics and problem solving."
+        }
+      ],
+      "createdAt": "2026-08-25T14:15:00.000Z",
+      "updatedAt": "2026-10-02T11:20:00.000Z"
+    },
+    {
+      "id": "app_003",
+      "userId": "usr_demo_intern_101",
+      "company": "Vercel",
+      "role": "Full-Stack Developer Intern",
+      "jobType": "Internship",
+      "workModel": "Remote",
+      "location": "Remote (US/Global)",
+      "stipend": 50,
+      "stipendPeriod": "hourly",
+      "currency": "USD",
+      "status": "interviewing",
+      "applyDate": "2026-09-02",
+      "deadline": "2026-09-20",
+      "jobUrl": "https://vercel.com/careers",
+      "recruiterName": "Sarah Jenkins",
+      "recruiterEmail": "s.jenkins@vercel.com",
+      "notes": "Take-home assignment submitted on Next.js App Router and Edge Middleware. Scheduled for review call.",
+      "tags": [
+        "Next.js",
+        "React",
+        "Node.js",
+        "Edge Functions",
+        "Tailwind"
+      ],
+      "interviews": [
+        {
+          "id": "int_7",
+          "roundName": "Take-Home Project",
+          "date": "2026-09-10",
+          "status": "completed",
+          "notes": "Built a collaborative dashboard demo."
+        },
+        {
+          "id": "int_8",
+          "roundName": "Engineering Discussion",
+          "date": "2026-10-09",
+          "status": "scheduled",
+          "notes": "Deep dive into rendering paradigms and code review."
+        }
+      ],
+      "createdAt": "2026-09-02T09:40:00.000Z",
+      "updatedAt": "2026-10-04T16:00:00.000Z"
+    },
+    {
+      "id": "app_004",
+      "userId": "usr_demo_intern_101",
+      "company": "Figma",
+      "role": "Product Engineering Intern",
+      "jobType": "Internship",
+      "workModel": "Hybrid",
+      "location": "San Francisco, CA",
+      "stipend": 56,
+      "stipendPeriod": "hourly",
+      "currency": "USD",
+      "status": "applied",
+      "applyDate": "2026-09-18",
+      "deadline": "2026-10-10",
+      "jobUrl": "https://figma.com/careers",
+      "recruiterName": "David Cho",
+      "recruiterEmail": "dcho@figma.com",
+      "notes": "Applied via referral from Stanford alumni. Highlighted WebGL and canvas canvas manipulation projects.",
+      "tags": [
+        "TypeScript",
+        "WebGL",
+        "WASM",
+        "Canvas API"
+      ],
+      "interviews": [],
+      "createdAt": "2026-09-18T16:20:00.000Z",
+      "updatedAt": "2026-09-18T16:20:00.000Z"
+    },
+    {
+      "id": "app_005",
+      "userId": "usr_demo_intern_101",
+      "company": "Airbnb",
+      "role": "Frontend Engineering Intern",
+      "jobType": "Internship",
+      "workModel": "Remote",
+      "location": "Remote",
+      "stipend": 54,
+      "stipendPeriod": "hourly",
+      "currency": "USD",
+      "status": "applied",
+      "applyDate": "2026-09-22",
+      "deadline": "2026-10-15",
+      "jobUrl": "https://careers.airbnb.com",
+      "recruiterName": "Chloe Bennett",
+      "recruiterEmail": "cbennett@airbnb.com",
+      "notes": "Application submitted through career portal. Focused on component library and accessibility standards.",
+      "tags": [
+        "React",
+        "Accessibility (a11y)",
+        "GraphQL",
+        "Jest"
+      ],
+      "interviews": [],
+      "createdAt": "2026-09-22T11:05:00.000Z",
+      "updatedAt": "2026-09-22T11:05:00.000Z"
+    },
+    {
+      "id": "app_006",
+      "userId": "usr_demo_intern_101",
+      "company": "Linear",
+      "role": "Software Engineer Intern",
+      "jobType": "Internship",
+      "workModel": "Remote",
+      "location": "San Francisco / Remote",
+      "stipend": 60,
+      "stipendPeriod": "hourly",
+      "currency": "USD",
+      "status": "wishlist",
+      "applyDate": "",
+      "deadline": "2026-10-25",
+      "jobUrl": "https://linear.app/careers",
+      "recruiterName": "Tuomas Artman",
+      "recruiterEmail": "talent@linear.app",
+      "notes": "Need to tailor resume to emphasize high-speed client-side synchronization and SQLite/IndexedDB experience.",
+      "tags": [
+        "React",
+        "TypeScript",
+        "IndexedDB",
+        "Realtime Sync"
+      ],
+      "interviews": [],
+      "createdAt": "2026-09-28T18:00:00.000Z",
+      "updatedAt": "2026-09-28T18:00:00.000Z"
+    },
+    {
+      "id": "app_007",
+      "userId": "usr_demo_intern_101",
+      "company": "Spotify",
+      "role": "Web Platform Intern",
+      "jobType": "Internship",
+      "workModel": "Hybrid",
+      "location": "New York, NY",
+      "stipend": 48,
+      "stipendPeriod": "hourly",
+      "currency": "USD",
+      "status": "rejected",
+      "applyDate": "2026-08-10",
+      "deadline": "2026-08-30",
+      "jobUrl": "https://spotifyjobs.com",
+      "recruiterName": "Lukas Meyer",
+      "recruiterEmail": "lmeyer@spotify.com",
+      "notes": "Position closed early due to high volume. Encouraged to reapply for Spring 2027.",
+      "tags": [
+        "JavaScript",
+        "CSS Architecture",
+        "Web Audio API"
+      ],
+      "interviews": [
+        {
+          "id": "int_9",
+          "roundName": "Resume Screening",
+          "date": "2026-08-18",
+          "status": "completed",
+          "notes": "Pool filled."
+        }
+      ],
+      "createdAt": "2026-08-10T12:00:00.000Z",
+      "updatedAt": "2026-09-01T09:00:00.000Z"
+    }
+  ]
+}

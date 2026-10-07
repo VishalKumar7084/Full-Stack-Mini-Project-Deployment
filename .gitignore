@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Production build
+client/dist/
+dist/
+
+# Environment
+.env
+.env.local
+server/.env
+
+# Logs & Temp
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+*.tmp.*
+
+# Database in dev (keep initial seed or ignore local mutations if needed)
+# server/data/careerflow.db.json.tmp.*
